@@ -84,7 +84,10 @@ Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signa
 | `Phase CH2` | Phasenverschiebung auf Kanal 2 | ° (Grad) | `11` |
 | `Signalform CH2` | Signalform für Kanal 2 | `0` = Sinus, `1` = Rechteck | `0` |
 
-**Beispielzeile:**
+
+
+**Beispielzeilen:**
+
 ```csv
 Gruppe,Amplitude CH1,Frequenz CH1,Phase CH1,Signalform CH1,Amplitude CH2,Frequenz CH2,Phase CH2,Signalform CH2
 1,410,1000,0,0,830,1000,11,0
