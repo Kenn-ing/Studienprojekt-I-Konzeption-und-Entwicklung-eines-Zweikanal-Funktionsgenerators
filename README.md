@@ -1,4 +1,4 @@
-# Function-generator-with-Waveshare-ESP32-S3-touchscreen
+# Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators
  
 Dieses Repository ist Teil des ersten Studienprojekts der Studenten **Dejan Dimitrijević** und **Alexander Klose** an der [**Hochschule für Wirtschaft und Recht (HWR) Berlin**](https://www.hwr-berlin.de/) in Zusammenarbeit mit den [**Berliner Wasserbetrieben AöR**](https://www.bwb.de/de/index.php).
  
