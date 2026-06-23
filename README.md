@@ -30,10 +30,10 @@ Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signa
 ├── sw/
 │   ├── libraries/
 |       └── lvgl/              # lvgl Treiber
-│   └── DAC_Prog/              # Implementierungsmethode B
+│   └── DAC_Prog/              # Implementierungsmethode A
 |       └── ESP32DevMod/       # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |       └── ESP32S3/           # Code für die Benutzeroberfläche und das Einlesen des Parameter
-│   ├── DDS_Prog/              # Implementierungsmethode A
+│   ├── DDS_Prog/              # Implementierungsmethode B
 |       └── ESP32DevMod/       # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |       └── ESP32S3/           # Code für die Benutzeroberfläche und das Einlesen des Parameter
 ├── proj/
