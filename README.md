@@ -40,7 +40,7 @@ Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signa
 │   └── EEZ Studio Projekt/    # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
 ├── docs/
 │   ├── Schaltpläne/           # Schaltpläne der beiden Methoden
-│   └── 3D/                    # 3D Dateien der Gehäuse
+│   └── 3D-Design/             # 3D Dateien und technische Zeichnungen der Gehäuse
 │   └── Datenblätter/          # Datenblätter der Komponenten
 │   └── Pinouts/               # Pinouts der Komponenten
 └── README.md
