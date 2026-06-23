@@ -9,9 +9,9 @@ Dieses Repository ist Teil des ersten Studienprojekts der Studenten **Dejan Dimi
  
 ## Grundlegende Informationen
  
-Dieses Projekt befasst sich mit der Konzeption und Entwicklung eines Zweikanal-Funktionsgenerators auf Basis eines [Waveshare ESP32-S3 2,8-Zoll-Touch-LCD-Displays](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-2.8?srsltid=AfmBOorKiXWUO0Dnj3kRFyE_hHw5MEsdxoDEOFpi6EGPevpcTJwSkPUV). Der Funktionsgenerator gibt auf zwei Kanälen (A und B) sinus- und rechteckförmige Spannungssignale mit definierter Frequenz, Amplitude und Phasenverschiebung aus. Über das Display können verschiedene Gruppen mit jeweils individuellen Parametern ausgewählt werden. Zusätzlich zur Gruppenauswahl sind Hilfestellungen zur Verwendung der Laborgeräte direkt in die Benutzeroberfläche integriert.
+Dieses GitHub-Repository befasst sich mit der Konzeption und Entwicklung zweier Zweikanal-Funktionsgeneratoren auf Basis eines [Waveshare ESP32-S3 2,8-Zoll-Touch-LCD-Displays](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-2.8?srsltid=AfmBOorKiXWUO0Dnj3kRFyE_hHw5MEsdxoDEOFpi6EGPevpcTJwSkPUV). Die Funktionsgeneratoren geben auf zwei Kanälen (A und B) sinus- und rechteckförmige Spannungssignale mit einstellbarer Frequenz, Amplitude und Phasenverschiebung aus. Über das Display können verschiedene Gruppen mit jeweils individuellen Parametern ausgewählt werden. Zusätzlich zur Gruppenauswahl sind Hilfestellungen zur Verwendung der Laborgeräte in die Benutzeroberfläche integriert.
  
-Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signalform erfolgt über eine CSV-Datei, die auf einer microSD-Karte gespeichert wird. Im Rahmen des Projekts wurden zwei unterschiedliche Implementierungsmethoden entwickelt und gegenübergestellt.
+Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform werden über eine CSV-Datei, die auf einer microSD-Karte gespeichert wird, eingelesen. Im Rahmen des Projekts wurden zwei unterschiedliche Implementierungsmethoden entwickelt und gegenübergestellt.
  
 ## Implementierungsmethode A: Signalgenerierung mittels interner Digital-Analog-Wandler eines ESP32
  
