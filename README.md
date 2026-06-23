@@ -50,7 +50,7 @@ Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signa
  
 1. **Arduino IDE** mit [Unterstützung für ESP32 installieren](https://docs.waveshare.com/ESP32-Arduino-Tutorials/Arduino-IDE-Setup).
 2. LVGL Bibliotheken aus diesem Projekt herunterladen und in den `Arduino\libraries` Pfad kopieren.
-3. Je nach gewünschter Implementierungsmethode den entsprechenden Ordner (`DAC_Prog` oder `DDS_Prog`) in der Arduino IDE öffnen, das passende Board auswählen und flashen.
+3. Je nach gewünschter Implementierungsmethode den entsprechenden Ordner ([`DAC_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DAC_Prog) oder [`DDS_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DDS_Prog)) in der Arduino IDE öffnen, das passende Board auswählen und flashen.
    - Für das ESP32-S3-Display müssen folgende Einstellungen in der Arduino IDE vorgenommen werden:
      - **Board:** ESP32S3 Dev Module
      - **USB CDC On Boot:** Enabled 
