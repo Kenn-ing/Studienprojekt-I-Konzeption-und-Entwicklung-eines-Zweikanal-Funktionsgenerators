@@ -70,6 +70,13 @@ Die Eingabe der Parameter für Amplitude, Frequenz, Phasenverschiebung und Signa
 7. Über den Button *Hilfe* kann die Navigationsansicht aufgerufen werden, um zwischen den Hilfestellungen zu navigieren.
 8. Uber den Zurück-Button in der oberen rechten Ecke gelangt man von jeder Unterseite zurück in die Navigationsansicht und von der Navigationsansicht zurück auf den Hauptbildschirm.
 
+## Grenzwerte
+
+| Variante | Frequenzbereich (Sinus)| Amplitudenbereich (Sinus)| Frequenzbereich (Rechteck)| Amplitudenbereich (Rechteck)|
+|---|---|---|---|---|
+| Implementierungsmethode A | `100 Hz - 500 Hz` | `500 mV - 1 V` | `10 Hz - 100 Hz` | `300 mV - 1,1 V` |
+| Implementierungsmethode B | `1 kHz - 80 kHz` | `0,5 V - 10 V` | `10 kHz - 80 kHz` | `2 V - 10 V` |
+
 ## CSV-Dateiformat
 
 | Spalte | Beschreibung | Einheit / Wertebereich | Beispiel |
