@@ -91,7 +91,7 @@ void dac_output_loop() {
 
   // Zeitdifferenz seit letztem Aufruf berechnen
   uint32_t now = micros();
-  uint32_t dtUs = now - lastMicros;  // Overflow-sicher da beide uint32_t
+  uint32_t dtUs = now - lastMicros;  
   lastMicros = now;
   float dt = dtUs * 1e-6f;  // Umrechnung in Sekunden
 
