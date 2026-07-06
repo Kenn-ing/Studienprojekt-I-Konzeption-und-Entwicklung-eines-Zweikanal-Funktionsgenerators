@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/6",
+    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/2",
     "selectedActionObject": "[FGUI.eez-project]:/actions/10",
     "selectedBitmapObject": "[FGUI.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
@@ -25,7 +25,7 @@
           },
           {
             "type": "border",
-            "selected": 1,
+            "selected": 2,
             "size": 152.5,
             "location": "right",
             "children": [
@@ -74,7 +74,7 @@
           {
             "type": "border",
             "selected": 1,
-            "size": 405.5,
+            "size": 12.5,
             "location": "bottom",
             "children": [
               {
@@ -192,17 +192,17 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 57.723880597014926,
+              "weight": 45.7386581399678,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#f42efd93-ed29-49ea-8537-266a2209db8c",
-                  "name": "Help_Grenzwerte",
+                  "name": "Help_Overview",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[FGUI.eez-project]:/userPages/6",
+                    "objectPath": "[FGUI.eez-project]:/userPages/2",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -234,39 +234,32 @@
               "active": true
             },
             {
-              "type": "row",
-              "id": "#ab9c8d82-83d7-4056-9dc3-a6b7797b6148",
-              "weight": 27.276119402985074,
+              "type": "tabset",
+              "id": "#4e3354cb-07ac-4874-a7d7-d522dd6b637c",
+              "weight": 22.335341147040534,
               "children": [
                 {
-                  "type": "tabset",
-                  "id": "#720525ae-2c3b-4e70-ae0a-f43fa3f6f888",
-                  "weight": 2.1487138263665595,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "PROPERTIES",
-                      "name": "Properties",
-                      "component": "propertiesPanel",
-                      "enableClose": false,
-                      "icon": "svg:properties"
-                    }
-                  ]
-                },
+                  "type": "tab",
+                  "id": "COMPONENTS_PALETTE",
+                  "name": "Components Palette",
+                  "component": "componentsPalette",
+                  "enableClose": false,
+                  "icon": "svg:components"
+                }
+              ]
+            },
+            {
+              "type": "tabset",
+              "id": "#720525ae-2c3b-4e70-ae0a-f43fa3f6f888",
+              "weight": 16.926000712991655,
+              "children": [
                 {
-                  "type": "tabset",
-                  "id": "#fab061bf-2b23-453a-a106-77d3d38f3e3e",
-                  "weight": 0.8512861736334405,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "COMPONENTS_PALETTE",
-                      "name": "Components Palette",
-                      "component": "componentsPalette",
-                      "enableClose": false,
-                      "icon": "svg:components"
-                    }
-                  ]
+                  "type": "tab",
+                  "id": "PROPERTIES",
+                  "name": "Properties",
+                  "component": "propertiesPanel",
+                  "enableClose": false,
+                  "icon": "svg:properties"
                 }
               ]
             }
@@ -1144,7 +1137,7 @@
           "x": -51.53623925825411,
           "y": -225.1441579065621
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1156,7 +1149,12 @@
       "selectionBack": {
         "0": {
           "0": {},
-          "1": {}
+          "1": {},
+          "3": {},
+          "4": {
+            "$selected": true
+          },
+          "5": {}
         }
       }
     },
@@ -1168,9 +1166,7 @@
           "1": {
             "0": {}
           },
-          "3": {
-            "$selected": true
-          },
+          "3": {},
           "7": {},
           "8": {}
         }
@@ -1180,7 +1176,7 @@
           "x": -120,
           "y": -360
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1195,7 +1191,9 @@
         "0": {
           "0": {},
           "1": {},
-          "2": {}
+          "2": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1216,14 +1214,14 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {
-            "$selected": true
-          },
+          "0": {},
           "1": {
             "0": {},
             "1": {}
           },
-          "2": {}
+          "2": {
+            "$selected": true
+          }
         }
       },
       "transform": {
@@ -1231,7 +1229,7 @@
           "x": -319,
           "y": -261
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1244,9 +1242,7 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {
-            "$selected": true
-          },
+          "0": {},
           "1": {
             "0": {}
           },
@@ -1271,7 +1267,9 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {},
+          "0": {
+            "$selected": true
+          },
           "1": {
             "0": {}
           },
@@ -1304,7 +1302,7 @@
       },
       "transform": {
         "translate": {
-          "x": -378,
+          "x": -187.16666340827942,
           "y": -287
         },
         "scale": 2
@@ -1322,6 +1320,9 @@
         "0": {
           "1": {
             "1": {}
+          },
+          "2": {
+            "$selected": true
           }
         }
       },
@@ -1354,10 +1355,7 @@
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
-  "lvglExpandedPropertiesGroup": [
-    "BACKGROUND",
-    "TEXT"
-  ],
+  "lvglExpandedPropertiesGroup": [],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
   "flowZoom": 2,

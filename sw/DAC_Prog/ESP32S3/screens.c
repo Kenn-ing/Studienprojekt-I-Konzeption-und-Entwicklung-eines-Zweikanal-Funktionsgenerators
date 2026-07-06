@@ -424,7 +424,7 @@ void create_screen_help_overview() {
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
                     lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
                     lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-                    lv_label_set_text(obj, "Aplitude \nMessen");
+                    lv_label_set_text(obj, "Amplitude \nMessen");
                 }
             }
         }
@@ -554,7 +554,7 @@ void create_screen_help_overview() {
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_font(obj, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_label_set_text(obj, "Bitte auswahl treffen");
+            lv_label_set_text(obj, "Bitte Auswahl treffen");
         }
     }
     
@@ -1073,7 +1073,7 @@ void create_screen_help_infos_zur_sd_karte() {
             lv_obj_t *obj = lv_label_create(parent_obj);
             lv_obj_set_pos(obj, 9, 51);
             lv_obj_set_size(obj, 221, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "Speicherformat: FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten besitzten.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2");
+            lv_label_set_text(obj, "Speicherformat: FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2");
         }
     }
     
