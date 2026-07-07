@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/2",
+    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/7",
     "selectedActionObject": "[FGUI.eez-project]:/actions/10",
     "selectedBitmapObject": "[FGUI.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
@@ -193,31 +193,20 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 45.7386581399678,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#f42efd93-ed29-49ea-8537-266a2209db8c",
-                  "name": "Help_Overview",
+                  "id": "#590c9e23-0ecd-46bd-858c-bb69a05b8aca",
+                  "name": "Help_Info",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[FGUI.eez-project]:/userPages/2",
+                    "objectPath": "[FGUI.eez-project]:/userPages/8",
                     "permanent": false
                   },
                   "icon": "svg:page"
-                },
-                {
-                  "type": "tab",
-                  "id": "#3bed3d21-8d0d-47f4-a254-06462a4a16b0",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[FGUI.eez-project]:/settings",
-                    "subObjectPath": "[FGUI.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
                 },
                 {
                   "type": "tab",
@@ -1081,10 +1070,10 @@
       },
       "transform": {
         "translate": {
-          "x": -435.5,
-          "y": -231.85000000000002
+          "x": -143.54166259368262,
+          "y": -307.2291666666667
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1095,9 +1084,6 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {
-            "$selected": true
-          },
           "1": {
             "0": {}
           },
@@ -1137,7 +1123,7 @@
           "x": -51.53623925825411,
           "y": -225.1441579065621
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1148,12 +1134,12 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {},
-          "1": {},
-          "3": {},
-          "4": {
+          "0": {
             "$selected": true
           },
+          "1": {},
+          "3": {},
+          "4": {},
           "5": {}
         }
       }
@@ -1162,7 +1148,9 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {},
+          "0": {
+            "$selected": true
+          },
           "1": {
             "0": {}
           },
@@ -1176,7 +1164,7 @@
           "x": -120,
           "y": -360
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1189,11 +1177,11 @@
       "selectionFront": {},
       "selectionBack": {
         "0": {
-          "0": {},
-          "1": {},
-          "2": {
+          "0": {
             "$selected": true
-          }
+          },
+          "1": {},
+          "2": {}
         }
       },
       "transform": {
@@ -1201,7 +1189,7 @@
           "x": -381,
           "y": -191
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1219,9 +1207,7 @@
             "0": {},
             "1": {}
           },
-          "2": {
-            "$selected": true
-          }
+          "2": {}
         }
       },
       "transform": {
@@ -1229,7 +1215,7 @@
           "x": -319,
           "y": -261
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1239,31 +1225,6 @@
       }
     },
     "[FGUI.eez-project]:/userPages/5[flow-state]": {
-      "selectionFront": {},
-      "selectionBack": {
-        "0": {
-          "0": {},
-          "1": {
-            "0": {}
-          },
-          "2": {}
-        }
-      },
-      "transform": {
-        "translate": {
-          "x": -435.5,
-          "y": -231.85000000000002
-        },
-        "scale": 2
-      },
-      "timeline": {
-        "isEditorActive": false,
-        "position": 0,
-        "secondToPx": 200,
-        "scrollLeft": 0
-      }
-    },
-    "[FGUI.eez-project]:/userPages/6[flow-state]": {
       "selectionFront": {},
       "selectionBack": {
         "0": {
@@ -1278,10 +1239,35 @@
       },
       "transform": {
         "translate": {
+          "x": -435.5,
+          "y": -231.85000000000002
+        },
+        "scale": 2.5
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[FGUI.eez-project]:/userPages/6[flow-state]": {
+      "selectionFront": {},
+      "selectionBack": {
+        "0": {
+          "0": {},
+          "1": {
+            "0": {}
+          },
+          "2": {}
+        }
+      },
+      "transform": {
+        "translate": {
           "x": -246.5,
           "y": -290.85
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1302,10 +1288,10 @@
       },
       "transform": {
         "translate": {
-          "x": -187.16666340827942,
-          "y": -287
+          "x": -143.54166259368262,
+          "y": -307.2291666666667
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1331,7 +1317,7 @@
           "x": -364,
           "y": -495.83333480358124
         },
-        "scale": 2
+        "scale": 2.5
       },
       "timeline": {
         "isEditorActive": false,
@@ -1358,7 +1344,7 @@
   "lvglExpandedPropertiesGroup": [],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 2,
+  "flowZoom": 2.5,
   "implementationLanguage": "C++",
   "openDialogDefaultPath": "C:\\Users\\legen\\Downloads\\arrow_prev.png"
 }

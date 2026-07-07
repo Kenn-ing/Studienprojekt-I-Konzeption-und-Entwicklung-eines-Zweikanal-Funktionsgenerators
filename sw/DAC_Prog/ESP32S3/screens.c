@@ -1071,9 +1071,9 @@ void create_screen_help_infos_zur_sd_karte() {
         }
         {
             lv_obj_t *obj = lv_label_create(parent_obj);
-            lv_obj_set_pos(obj, 9, 51);
+            lv_obj_set_pos(obj, 9, 42);
             lv_obj_set_size(obj, 221, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "Speicherformat: FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2");
+            lv_label_set_text(obj, "Dateiname / Speicherformat: \n\"Gruppen.csv\" / FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten und 30 Gruppen besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur der Kopfzeile:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2");
         }
     }
     

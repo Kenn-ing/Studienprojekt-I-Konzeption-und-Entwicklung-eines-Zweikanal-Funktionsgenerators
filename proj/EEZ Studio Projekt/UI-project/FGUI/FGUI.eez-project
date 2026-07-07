@@ -4580,9 +4580,9 @@
               "objID": "331672ed-d8d0-4217-b464-ce9b5a313481",
               "type": "LVGLLabelWidget",
               "left": 9,
-              "top": 51,
+              "top": 42,
               "width": 221,
-              "height": 256,
+              "height": 272,
               "customInputs": [],
               "customOutputs": [],
               "style": {
@@ -4613,7 +4613,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "text": "Speicherformat: FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2",
+              "text": "Dateiname / Speicherformat: \n\"Gruppen.csv\" / FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten und 30 Gruppen besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur der Kopfzeile:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2",
               "textType": "literal",
               "longMode": "WRAP",
               "recolor": false

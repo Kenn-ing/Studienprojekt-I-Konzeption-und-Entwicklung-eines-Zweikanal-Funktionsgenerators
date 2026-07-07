@@ -12,7 +12,7 @@
 #include "signal_config.h"
 
 // Dateiname der CSV auf der SD-Karte
-static constexpr char CSV_FILENAME[] = "/GruppenDAC.csv";
+static constexpr char CSV_FILENAME[] = "/Gruppen.csv";
 
 // Initialisiert die SD-Karte und den SPI-Bus
 bool csv_init(uint8_t cs_pin);
