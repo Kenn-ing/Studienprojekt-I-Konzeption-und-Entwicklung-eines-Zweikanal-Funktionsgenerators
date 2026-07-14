@@ -991,7 +991,7 @@ void create_screen_help_grenzwerte() {
             lv_obj_t *obj = lv_label_create(parent_obj);
             lv_obj_set_pos(obj, 121, 133);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "2 - 10 V");
+            lv_label_set_text(obj, "2 V - 10 V");
         }
     }
     
