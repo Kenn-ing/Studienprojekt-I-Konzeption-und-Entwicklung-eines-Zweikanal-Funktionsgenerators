@@ -30,6 +30,7 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
 ├── sw/
 │   ├── libraries/
 |       └── lvgl/              # lvgl Treiber
+|       └── Adafruit_NeoPixel/ # NeoPixel/ws2812b Treiber
 │   └── DAC_Prog/              # Implementierungsmethode A
 |       └── ESP32DevMod/       # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |       └── ESP32S3/           # Code für die Benutzeroberfläche und das Einlesen des Parameter
@@ -49,8 +50,9 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
 ## Installation
  
 1. **Arduino IDE** mit [Unterstützung für ESP32 installieren](https://docs.waveshare.com/ESP32-Arduino-Tutorials/Arduino-IDE-Setup).
-2. LVGL Bibliotheken aus diesem Projekt herunterladen und in den `Arduino\libraries` Pfad kopieren.
-3. Je nach gewünschter Implementierungsmethode den entsprechenden Ordner ([`DAC_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DAC_Prog) oder [`DDS_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DDS_Prog)) in der Arduino IDE öffnen, das passende Board auswählen und flashen.
+2. LVGL Bibliothek aus diesem Projekt herunterladen und in den `Arduino\libraries` Pfad kopieren.
+3. Adafruit NeoPixel Bibliotheken aus diesem Projekt herunterladen und in den `Arduino\libraries` Pfad kopieren.
+4. Je nach gewünschter Implementierungsmethode den entsprechenden Ordner ([`DAC_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DAC_Prog) oder [`DDS_Prog`](https://github.com/Kenn-ing/Studienprojekt-I-Konzeption-und-Entwicklung-eines-Zweikanal-Funktionsgenerators/tree/main/sw/DDS_Prog)) in der Arduino IDE öffnen, das passende Board auswählen und flashen.
    - Für das ESP32-S3-Display müssen folgende Einstellungen in der Arduino IDE vorgenommen werden:
      - **Board:** ESP32S3 Dev Module
      - **USB CDC On Boot:** Enabled 
