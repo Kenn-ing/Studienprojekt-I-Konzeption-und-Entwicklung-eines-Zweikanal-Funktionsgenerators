@@ -66,10 +66,10 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
 ## Nutzung
  
 1. CSV-Datei mit den gewünschten Parametern für alle 30 Gruppen auf eine microSD-Karte kopieren und in das Display-Board einlegen.
-3. System einschalten und die Daten nach dem die microSD-Karte erkannt wurde über den Button *Daten Laden* die Gruppenparameter einlesen.
+3. System einschalten und nach dem die microSD-Karte erkannt wurde über den Button *Daten Laden* die Gruppenparameter einlesen.
 4. Gewünschte Gruppe über die  Scroll-Liste auswählen, um das entsprechende Signal auf den Kanälen A und B auszugeben.
 5. Über den Button *Start* die Signalausgabe starten.
-6. Über den Button *Stop* die Signalausgabe stopen.
+6. Über den Button *Stop* die Signalausgabe stoppen.
 7. Über den Button *Hilfe* kann die Navigationsansicht aufgerufen werden, um zwischen den Hilfestellungen zu navigieren.
 8. Uber den Zurück-Button in der oberen rechten Ecke gelangt man von jeder Unterseite zurück in die Navigationsansicht und von der Navigationsansicht zurück auf den Hauptbildschirm.
 
