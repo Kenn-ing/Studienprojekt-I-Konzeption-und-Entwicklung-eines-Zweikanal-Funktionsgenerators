@@ -1,8 +1,4 @@
-# Standardmäßig alles vom Release-Archiv ausschließen
-* export-ignore
-
-# Nur die Ordner proj und sw (inklusive aller Unterordner und Dateien) behalten
-!proj/
-!proj/**
-!sw/
-!sw/**
+docs/ export-ignore
+.gitignore export-ignore
+README.md export-ignore
+.gitattributes export-ignore
