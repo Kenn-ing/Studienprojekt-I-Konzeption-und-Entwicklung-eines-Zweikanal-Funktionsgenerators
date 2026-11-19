@@ -28,23 +28,34 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
  
 ```
 ├── sw/
-│   ├── libraries/
-|       └── lvgl/                       # lvgl Treiber
-|       └── Adafruit_NeoPixel/          # NeoPixel/ws2812b Treiber
-│   └── DAC_Prog/                       # Implementierungsmethode A
-|       └── ESP32DevMod/                # Code für die Steuerung der Komponenten und Ausgabe der Spannung
-|       └── ESP32S3/                    # Code für die Benutzeroberfläche und das Einlesen des Parameter
-│   ├── DDS_Prog/                       # Implementierungsmethode B
-|       └── ESP32DevMod/                # Code für die Steuerung der Komponenten und Ausgabe der Spannung
-|       └── ESP32S3/                    # Code für die Benutzeroberfläche und das Einlesen des Parameter
+│   └── libraries/
+|       └── lvgl/                                # lvgl Treiber
+|       └── Adafruit_NeoPixel/                   # NeoPixel/ws2812b Treiber
+|   └── 2 Hauptgruppen - 3 Aufgaben - 60 Gruppen # Sourcecode für einen Datensatz mit 2 Hauptgruppen, 3 Aufgaben und 60 Arbeitsgruppen
+│       └── DAC_Prog/                            # Implementierungsmethode A
+|           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
+|           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
+│       └── DDS_Prog/                            # Implementierungsmethode B
+|           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
+|           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
+|   └── 30 Gruppen                               # Sourcecode für einen Datensatz mit 30 Arbeitsgruppen
+│       └── DAC_Prog/                            # Implementierungsmethode A
+|           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
+|           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
+│       └── DDS_Prog/                            # Implementierungsmethode B
+|           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
+|           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
 ├── proj/
-│   └── EEZ Studio Projekt/             # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
+|   └── 2 Hauptgruppen - 3 Aufgaben - 60 Gruppen # UI für einen Datensatz mit 2 Hauptgruppen, 3 Aufgaben und 60 Arbeitsgruppen
+│       └── EEZ Studio Projekt/                  # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
+|   └── 30 Gruppen                               # UI für einen Datensatz mit 30 Arbeitsgruppen
+│       └── EEZ Studio Projekt/                  # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
 ├── docs/
-│   ├── SP-I_Klose_Dimitrijevic.pdf     # Schriftliche Ausarbeitung inklusive aller verwendeten Quellen
-│   ├── Schaltpläne/                    # Schaltpläne der beiden Methoden
-│   └── 3D-Design/                      # 3D Dateien und technische Zeichnungen der Gehäuse
-│   └── Datenblätter/                   # Datenblätter der Komponenten
-│   └── Pinouts/                        # Pinouts der Komponenten
+│   └── SP-I_Klose_Dimitrijevic.pdf              # Schriftliche Ausarbeitung inklusive aller verwendeten Quellen
+│   └── Schaltpläne/                             # Schaltpläne der beiden Methoden
+│   └── 3D-Design/                               # 3D Dateien und technische Zeichnungen der Gehäuse
+│   └── Datenblätter/                            # Datenblätter der Komponenten
+│   └── Pinouts/                                 # Pinouts der Komponenten
 └── README.md
 ```
  
