@@ -13,19 +13,19 @@
 #include "sd_card.h"
 #include "csv.h"
 #include "Uart.h"
+#include <string>
 
 /**
- * Globaler Variablenbereich für die aktive Gruppe. Diese Variable wird verwendet, um die aktuell ausgewählte Gruppe in der Benutzeroberfläche zu verfolgen. 
- * Sie kann von anderen Teilen des Programms über die bereitgestellten Getter- und Setter-Funktionen abgerufen und geändert werden.
+ * Globaler Variablenbereich für die Versionnummer des Projektes. Diese Variable wird über die Funktionen get_var_version_number_text() und set_var_version_number_text() verwaltet, um den Zugriff auf die Versionnummer zu ermöglichen.
  */
-int32_t active_group = 0;
+std::string version_number_text;
 
-extern "C" int32_t get_var_active_group() {
-  return active_group;
+extern "C" const char *get_var_version_number_text() {
+    return version_number_text.c_str();
 }
 
-extern "C" void set_var_active_group(int32_t value) {
-  active_group = value;
+extern "C" void set_var_version_number_text(const char *value) {
+    version_number_text = value;
 }
 
 //----------------------------------------------------------------------
@@ -36,6 +36,7 @@ extern "C" void set_var_active_group(int32_t value) {
  * Daurauf folgend kann das HMI genutzt werden und zum Beispiel die Daten von der SD Karte kann gelesen werden
  */
 void setup() {
+  set_var_version_number_text("v2.0.0");
   Serial.begin(115200);
   Backlight_Init();
   LCD_Init();

@@ -1,8 +1,8 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/2",
     "selectedActionObject": "[FGUI.eez-project]:/actions/10",
-    "selectedGlobalVariableObject": "[FGUI.eez-project]:/variables/globalVariables/8",
+    "selectedGlobalVariableObject": "[FGUI.eez-project]:/variables/globalVariables/1",
     "selectedBitmapObject": "[FGUI.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -200,10 +200,10 @@
                 {
                   "type": "tab",
                   "id": "#590c9e23-0ecd-46bd-858c-bb69a05b8aca",
-                  "name": "Starting",
+                  "name": "Help_Overview",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[FGUI.eez-project]:/userPages/0",
+                    "objectPath": "[FGUI.eez-project]:/userPages/2",
                     "permanent": false
                   },
                   "icon": "svg:page"
