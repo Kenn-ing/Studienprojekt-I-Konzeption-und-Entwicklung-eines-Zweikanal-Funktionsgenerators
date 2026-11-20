@@ -58,8 +58,8 @@ void create_screen_starting() {
             // Background_1
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_1 = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -102,7 +102,6 @@ void create_screen_starting() {
             lv_label_set_text(obj, "");
         }
         {
-            //HWR_Logo
             lv_obj_t *obj = lv_img_create(parent_obj);
             lv_obj_set_pos(obj, 70, 22);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
@@ -136,8 +135,8 @@ void create_screen_main() {
             // Background
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -330,7 +329,6 @@ void create_screen_main() {
                     lv_led_set_brightness(obj, 0);
                 }
                 {
-                    //Status_Text
                     lv_obj_t *obj = lv_label_create(parent_obj);
                     lv_obj_set_pos(obj, 0, 5);
                     lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
@@ -436,7 +434,7 @@ void tick_screen_main() {
         }
     }
     {
-        const char *new_val = get_var_active_main_group();
+        const char *new_val = get_var_main_group_text();
         const char *cur_val = lv_dropdown_get_options(objects.droppdown_main_group);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.droppdown_main_group;
@@ -511,8 +509,8 @@ void create_screen_help_overview() {
             // Background_Help_Overview
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_overview = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -751,8 +749,8 @@ void create_screen_help_amplitude_messen() {
             // Background_Help_Amplitude_Messen
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_amplitude_messen = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 600);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 596);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -833,8 +831,8 @@ void create_screen_help_frequenz_messen() {
             // Background_Help_Amplitude_Messen_2
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_amplitude_messen_2 = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 545);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 544);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -915,8 +913,8 @@ void create_screen_help_phase_messen() {
             // Background_Help_Amplitude_Messen_1
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_amplitude_messen_1 = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 755);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 753);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -998,8 +996,8 @@ void create_screen_help_grenzwerte() {
             // Background_Help_Amplitude_Messen_3
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_amplitude_messen_3 = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -1188,8 +1186,8 @@ void create_screen_help_infos_zur_sd_karte() {
             // Background_Help_Amplitude_Messen_4
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_amplitude_messen_4 = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -1270,8 +1268,8 @@ void create_screen_help_info() {
             // Background_Help_Info
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.background_help_info = obj;
-            lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 240, 320);
+            lv_obj_set_pos(obj, 0, -1);
+            lv_obj_set_size(obj, 240, 321);
             lv_obj_set_style_pad_left(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_top(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_pad_right(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);

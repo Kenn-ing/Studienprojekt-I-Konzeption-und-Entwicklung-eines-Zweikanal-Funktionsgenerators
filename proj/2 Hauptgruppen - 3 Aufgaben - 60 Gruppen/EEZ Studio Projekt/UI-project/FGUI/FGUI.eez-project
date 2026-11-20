@@ -1493,7 +1493,7 @@
               },
               "group": "",
               "groupIndex": 0,
-              "options": "Active_Main_Group",
+              "options": "Main_Group_Text",
               "optionsType": "expression",
               "selected": "Active_Main_Group",
               "selectedType": "expression",

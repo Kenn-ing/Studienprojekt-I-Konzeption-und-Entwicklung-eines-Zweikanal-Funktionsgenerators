@@ -447,7 +447,7 @@ void tick_screen_main() {
         }
     }
     {
-        const char *new_val = get_var_active_main_group();
+        const char *new_val = get_var_main_group_text();
         const char *cur_val = lv_dropdown_get_options(objects.droppdown_main_group);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.droppdown_main_group;

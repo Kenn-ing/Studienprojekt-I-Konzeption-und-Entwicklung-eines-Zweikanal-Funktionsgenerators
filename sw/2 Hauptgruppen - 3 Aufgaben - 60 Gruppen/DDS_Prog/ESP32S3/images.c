@@ -1,6 +1,6 @@
 #include "images.h"
 
-const ext_img_desc_t images[5] = {
+const ext_img_desc_t images[7] = {
     { "exit", &img_exit },
     { "sd_card", &img_sd_card },
     { "crossing", &img_crossing },
