@@ -7,22 +7,6 @@
 extern "C" {
 #endif
 
-// Screens
-
-enum ScreensEnum {
-    _SCREEN_ID_FIRST = 1,
-    SCREEN_ID_STARTING = 1,
-    SCREEN_ID_MAIN = 2,
-    SCREEN_ID_HELP_OVERVIEW = 3,
-    SCREEN_ID_HELP_AMPLITUDE_MESSEN = 4,
-    SCREEN_ID_HELP_FREQUENZ_MESSEN = 5,
-    SCREEN_ID_HELP_PHASE_MESSEN = 6,
-    SCREEN_ID_HELP_GRENZWERTE = 7,
-    SCREEN_ID_HELP_INFOS_ZUR_SD_KARTE = 8,
-    SCREEN_ID_HELP_INFO = 9,
-    _SCREEN_ID_LAST = 9
-};
-
 typedef struct _objects_t {
     lv_obj_t *starting;
     lv_obj_t *main;
@@ -33,20 +17,27 @@ typedef struct _objects_t {
     lv_obj_t *help_grenzwerte;
     lv_obj_t *help_infos_zur_sd_karte;
     lv_obj_t *help_info;
+    lv_obj_t *background_1;
     lv_obj_t *starting_text;
     lv_obj_t *spinner;
+    lv_obj_t *version_text;
     lv_obj_t *background;
     lv_obj_t *header;
     lv_obj_t *obj0;
     lv_obj_t *load_data_button;
     lv_obj_t *help_button;
-    lv_obj_t *gruppenauswahl;
     lv_obj_t *stop_button;
     lv_obj_t *lable_stop;
     lv_obj_t *start_button;
     lv_obj_t *lable_start;
     lv_obj_t *output_status;
     lv_obj_t *status_led;
+    lv_obj_t *droppdown_main_group;
+    lv_obj_t *droppdown_sub_group;
+    lv_obj_t *droppdown_question;
+    lv_obj_t *label_main_group;
+    lv_obj_t *label_question;
+    lv_obj_t *label_sub_group;
     lv_obj_t *obj1;
     lv_obj_t *background_help_overview;
     lv_obj_t *header_help_overview;
@@ -87,6 +78,18 @@ typedef struct _objects_t {
 
 extern objects_t objects;
 
+enum ScreensEnum {
+    SCREEN_ID_STARTING = 1,
+    SCREEN_ID_MAIN = 2,
+    SCREEN_ID_HELP_OVERVIEW = 3,
+    SCREEN_ID_HELP_AMPLITUDE_MESSEN = 4,
+    SCREEN_ID_HELP_FREQUENZ_MESSEN = 5,
+    SCREEN_ID_HELP_PHASE_MESSEN = 6,
+    SCREEN_ID_HELP_GRENZWERTE = 7,
+    SCREEN_ID_HELP_INFOS_ZUR_SD_KARTE = 8,
+    SCREEN_ID_HELP_INFO = 9,
+};
+
 void create_screen_starting();
 void tick_screen_starting();
 
@@ -118,6 +121,7 @@ void tick_screen_by_id(enum ScreensEnum screenId);
 void tick_screen(int screen_index);
 
 void create_screens();
+
 
 #ifdef __cplusplus
 }

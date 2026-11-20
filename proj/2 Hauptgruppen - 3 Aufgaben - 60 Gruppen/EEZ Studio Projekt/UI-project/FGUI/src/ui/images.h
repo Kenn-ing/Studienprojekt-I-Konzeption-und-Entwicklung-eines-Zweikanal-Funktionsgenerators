@@ -12,6 +12,8 @@ extern const lv_img_dsc_t img_sd_card;
 extern const lv_img_dsc_t img_crossing;
 extern const lv_img_dsc_t img_arrow_next;
 extern const lv_img_dsc_t img_arrow_prev;
+extern const lv_img_dsc_t img_hwr_logo;
+extern const lv_img_dsc_t img_hwr_logo_main;
 
 #ifndef EXT_IMG_DESC_T
 #define EXT_IMG_DESC_T
@@ -21,7 +23,8 @@ typedef struct _ext_img_desc_t {
 } ext_img_desc_t;
 #endif
 
-extern const ext_img_desc_t images[5];
+extern const ext_img_desc_t images[7];
+
 
 #ifdef __cplusplus
 }

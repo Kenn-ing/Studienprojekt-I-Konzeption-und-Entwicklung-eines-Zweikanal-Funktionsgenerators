@@ -20,6 +20,7 @@ extern void action_show_help_infos_zur_sd_karte(lv_event_t * e);
 extern void action_exit_to_help_overview(lv_event_t * e);
 extern void action_show_help_info(lv_event_t * e);
 
+
 #ifdef __cplusplus
 }
 #endif

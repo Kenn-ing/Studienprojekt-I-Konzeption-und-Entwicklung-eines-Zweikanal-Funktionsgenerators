@@ -1,7 +1,8 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/7",
+    "selectedUserPageObject": "[FGUI.eez-project]:/userPages/0",
     "selectedActionObject": "[FGUI.eez-project]:/actions/10",
+    "selectedGlobalVariableObject": "[FGUI.eez-project]:/variables/globalVariables/8",
     "selectedBitmapObject": "[FGUI.eez-project]:/bitmaps/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -25,7 +26,7 @@
           },
           {
             "type": "border",
-            "selected": 2,
+            "selected": 0,
             "size": 152.5,
             "location": "right",
             "children": [
@@ -193,17 +194,16 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 45.7386581399678,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#590c9e23-0ecd-46bd-858c-bb69a05b8aca",
-                  "name": "Help_Info",
+                  "name": "Starting",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[FGUI.eez-project]:/userPages/8",
+                    "objectPath": "[FGUI.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -225,7 +225,7 @@
             {
               "type": "tabset",
               "id": "#4e3354cb-07ac-4874-a7d7-d522dd6b637c",
-              "weight": 22.335341147040534,
+              "weight": 6.223649746701395,
               "children": [
                 {
                   "type": "tab",
@@ -240,7 +240,7 @@
             {
               "type": "tabset",
               "id": "#720525ae-2c3b-4e70-ae0a-f43fa3f6f888",
-              "weight": 16.926000712991655,
+              "weight": 33.03769211333078,
               "children": [
                 {
                   "type": "tab",
@@ -497,88 +497,6 @@
                       "id": "DEBUGGER_LOGS",
                       "name": "Logs",
                       "component": "logs",
-                      "enableClose": false,
-                      "icon": "svg:log"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      }
-    },
-    "rootDockerSimulator": {
-      "version": 1,
-      "json": {
-        "global": {
-          "splitterSize": 4,
-          "splitterExtra": 4,
-          "tabEnableRename": false,
-          "borderEnableAutoHide": true
-        },
-        "borders": [],
-        "layout": {
-          "type": "row",
-          "id": "#a664e452-dcb9-4478-81ec-563f60fdc5c9",
-          "children": [
-            {
-              "type": "tabset",
-              "id": "#be1a7dc9-32dc-4b66-a845-6515e67b7e52",
-              "weight": 70,
-              "enableDrop": false,
-              "enableDrag": false,
-              "enableClose": false,
-              "enableTabStrip": true,
-              "children": [
-                {
-                  "type": "tab",
-                  "id": "DOCKER_SIMULATOR_PREVIEW",
-                  "name": "Preview",
-                  "component": "dockerSimulatorPreview",
-                  "enableClose": false,
-                  "icon": "material:computer"
-                }
-              ]
-            },
-            {
-              "type": "row",
-              "id": "#8bc15b85-9a99-42e4-acda-462c454da6be",
-              "weight": 30,
-              "children": [
-                {
-                  "type": "tabset",
-                  "id": "#f875c8b3-aa47-49f8-a2dd-ae8cf67f272b",
-                  "weight": 50,
-                  "enableDrop": false,
-                  "enableDrag": false,
-                  "enableClose": false,
-                  "enableTabStrip": true,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "DOCKER_SIMULATOR_LOGS",
-                      "name": "Build Logs",
-                      "component": "dockerSimulatorLogs",
-                      "enableClose": false,
-                      "icon": "svg:log"
-                    }
-                  ]
-                },
-                {
-                  "type": "tabset",
-                  "id": "#5b553ec1-87f9-4a3e-9b5c-53c5d54ac22c",
-                  "weight": 50,
-                  "enableDrop": false,
-                  "enableDrag": false,
-                  "enableClose": false,
-                  "enableTabStrip": true,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "DOCKER_SIMULATOR_PREVIEW_LOGS",
-                      "name": "Preview Logs",
-                      "component": "dockerSimulatorPreviewLogs",
                       "enableClose": false,
                       "icon": "svg:log"
                     }
@@ -1063,17 +981,14 @@
   "objects": {
     "[FGUI.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {
-          "1": {},
-          "2": {}
-        }
+        "0": {}
       },
       "transform": {
         "translate": {
-          "x": -143.54166259368262,
-          "y": -307.2291666666667
+          "x": -214.5362392582541,
+          "y": -395.8108144007027
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1113,17 +1028,14 @@
     },
     "[FGUI.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {
-          "1": {},
-          "2": {}
-        }
+        "0": {}
       },
       "transform": {
         "translate": {
-          "x": -51.53623925825411,
-          "y": -225.1441579065621
+          "x": -214.5362392582541,
+          "y": -229.1441579065621
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
@@ -1164,13 +1076,20 @@
           "x": -120,
           "y": -360
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "4": {},
+          "5": {},
+          "6": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/3[flow-state]": {
@@ -1189,13 +1108,18 @@
           "x": -381,
           "y": -191
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "1": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/4[flow-state]": {
@@ -1215,13 +1139,19 @@
           "x": -319,
           "y": -261
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "0": {},
+          "1": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/5[flow-state]": {
@@ -1242,13 +1172,18 @@
           "x": -435.5,
           "y": -231.85000000000002
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "1": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/6[flow-state]": {
@@ -1267,13 +1202,18 @@
           "x": -246.5,
           "y": -290.85
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "1": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/7[flow-state]": {
@@ -1288,16 +1228,21 @@
       },
       "transform": {
         "translate": {
-          "x": -143.54166259368262,
-          "y": -307.2291666666667
+          "x": -131.9249975562096,
+          "y": -245.63750000000005
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {
+          "1": {}
+        }
       }
     },
     "[FGUI.eez-project]:/userPages/8[flow-state]": {
@@ -1315,15 +1260,18 @@
       "transform": {
         "translate": {
           "x": -364,
-          "y": -495.83333480358124
+          "y": -162.5000218153
         },
-        "scale": 2.5
+        "scale": 2
       },
       "timeline": {
         "isEditorActive": false,
         "position": 0,
         "secondToPx": 200,
         "scrollLeft": 0
+      },
+      "selection": {
+        "0": {}
       }
     }
   },
@@ -1341,10 +1289,13 @@
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
-  "lvglExpandedPropertiesGroup": [],
+  "lvglExpandedPropertiesGroup": [
+    "MARGIN",
+    "TEXT",
+    "POSITION AND SIZE"
+  ],
   "showInactiveFlowsInDebugger": true,
   "globalFlowZoom": true,
-  "flowZoom": 2.5,
-  "implementationLanguage": "C++",
-  "openDialogDefaultPath": "C:\\Users\\legen\\Downloads\\arrow_prev.png"
+  "flowZoom": 2,
+  "implementationLanguage": "C++"
 }
