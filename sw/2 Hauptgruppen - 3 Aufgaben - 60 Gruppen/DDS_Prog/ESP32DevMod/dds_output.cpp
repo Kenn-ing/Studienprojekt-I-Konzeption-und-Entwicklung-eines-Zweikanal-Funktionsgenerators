@@ -83,8 +83,8 @@ void dds_start(const SignalGroup* gruppen, uint8_t anzahl) {
     dds_activated();
 
     // Augabe der Information im Serial Monitor
-    Serial.printf("DDS start | G%u | CH1: %.1fmV %.1fHz %.1f° | CH2: %.1fmV %.1fHz %.1f° | Signalform CH1: %hhu\n Signalform CH2: %hhu\n",
-        g.group_id,
+    Serial.printf("DDS start | H%u A%u U%u | CH1: %.1fmV %.1fHz %.1f° | CH2: %.1fmV %.1fHz %.1f° | Signalform CH1: %hhu\n Signalform CH2: %hhu\n",
+        g.main_group, g.task, g.sub_group,
         g.ch1.amplitude_mV, g.ch1.frequency_Hz, g.ch1.phase_deg,
         g.ch2.amplitude_mV, g.ch2.frequency_Hz, g.ch2.phase_deg, g.ch1.signalType, g.ch2.signalType);
 }

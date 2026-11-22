@@ -12,8 +12,6 @@
 #include "AD9833.h"
 #include "ws2812b.h"
 
-static SignalGroup gruppen[MAX_GROUPS];
-static uint8_t    anzahl_gruppen = 0;
 
 void setup() {
     Serial.begin(115200);
@@ -27,9 +25,10 @@ void setup() {
     MCP42010_Init();
 
     // Ausgabe der vorhandenen Gruppen im Serial Monitor
-    anzahl_gruppen = nvs_load_all(gruppen);
-    if (anzahl_gruppen > 0) {
-        Serial.printf("%u Gruppen aus NVS geladen, warte auf Startsignal.\n", anzahl_gruppen);
+    GroupConfig cfg;
+    if (nvs_load_config(cfg)) {
+        Serial.printf("%lu Gruppen im NVS (%u Hauptgruppen, %u Aufgaben, %u Untergruppen), warte auf Startsignal.\n",
+                      (unsigned long)group_total(cfg), cfg.mainGroups, cfg.tasks, cfg.subGroups);
     }
 }
 

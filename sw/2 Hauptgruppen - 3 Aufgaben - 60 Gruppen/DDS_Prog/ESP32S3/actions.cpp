@@ -17,6 +17,9 @@
 #include "signal_config.h"
 #include "Uart.h"
 #include <esp_timer.h>
+#include "nvs_store.h"
+#include "ui_config.h"
+
 extern volatile int64_t time_touch;  // Variable für die Messung der Reaktionsgeschwindigkeit
 
 
@@ -24,8 +27,9 @@ extern volatile int64_t time_touch;  // Variable für die Messung der Reaktionsg
 
 static uint32_t last_press_time = 0;  // Timer für die Entprellung der Tasten
 const uint32_t DEBOUNCE_MS = 100;     // Entprellungszeit in Millisekunden
-static SignalGroup groups[MAX_GROUPS];
-static uint8_t group_count = 0;
+static GroupConfig cfg;               // Struktur zur Speicherung der Gesamtzahl der Hauptgruppen, Aufgaben und Untergruppen
+static SignalGroup *groups = nullptr; // Pointer auf das Array der Signalgruppen
+static uint32_t group_count = 0;      // Zähler für die Anzahl der gelesenen Gruppen
 
 //----------------------------------------------------------------------
 
@@ -89,6 +93,9 @@ static void create_error_uart(void) {
 
 /**
  * Wenn die Start-Taste gedrückt wird, soll die Status-LED auf volle Helligkeit eingestellt und ein Ton ausgegeben werden.
+ * Die ausgewählte Hauptgruppe, Aufgabe und Untergruppe werden aus den Dropdown-Variablen gelesen
+ * (EEZ zählt ab 0, deshalb jeweils +1) und per UART als START:m,t,s an den Slave geschickt.
+ * Ob die Kombination existiert, prüft der Slave (bei unbekannter Kombination antwortet er mit NACK -> Fehler-Popup).
  * Für die Entprellung der Tasten wird ein Timer verwendet, der die Zeit seit der letzten Betätigung der Taste misst. Wenn die Taste innerhalb der Entprellungszeit erneut gedrückt wird, wird die Aktion ignoriert.
  */
 extern "C" void action_start(lv_event_t* e) {
@@ -98,11 +105,13 @@ extern "C" void action_start(lv_event_t* e) {
     last_press_time = now;
     buzzer_sound();
 
-    uint8_t group = (uint8_t)get_var_active_group() + 1;  // weil EEZ ab 0 zählt jede Gruppe +1
-    Serial.printf("Starte Gruppe %u\n", group);
+    uint8_t m = (uint8_t)(get_var_active_main_group() + 1);  // Hauptgruppe
+    uint8_t t = (uint8_t)(get_var_active_question() + 1);    // Aufgabe  (Variable heißt in EEZ "question")
+    uint8_t s = (uint8_t)(get_var_active_sub_group() + 1);   // Untergruppe
+    Serial.printf("Starte Hauptgruppe %u, Aufgabe %u, Untergruppe %u\n", m, t, s);
     lv_led_set_brightness(objects.status_led, 255);
 
-    if (!uart_group_start(group)) {
+    if (!uart_group_start(m, t, s)) {
         Serial.println("START-Befehl fehlgeschlagen");
         lv_led_set_brightness(objects.status_led, 0);
         create_error_uart();
@@ -125,6 +134,13 @@ extern "C" void action_stop(lv_event_t* e) {
 
 /**
  * Wenn die Load Data-Taste gedrückt wird, soll ein Ton ausgegeben werden und die Daten geladen werden.
+ * Ablauf:
+ *  1. CSV lesen: Anzahlen (Zeile 2) -> cfg, Gesamtzahl berechnen, Array anlegen, Gruppen einsortieren.
+ *     Bei Fehler (Datei fehlt, Anzahlen ungültig, Zeilen fehlen/doppelt) -> rotes CSV-Popup.
+ *  2. Anzahlen im NVS speichern (damit die Dropdowns nach einem Neustart wieder stimmen).
+ *  3. Dropdowns mit den Auswahlmöglichkeiten befüllen.
+ *  4. CFG + alle Gruppen + DONE per UART an den Slave senden. Bei Fehler -> rotes UART-Popup.
+ *  5. Array wieder freigeben (der Master braucht die Gruppen danach nicht mehr).
  * Für die Entprellung der Tasten wird ein Timer verwendet, der die Zeit seit der letzten Betätigung der Taste misst. Wenn die Taste innerhalb der Entprellungszeit erneut gedrückt wird, wird die Aktion ignoriert.
  */
 extern "C" void action_load_data(lv_event_t* e) {
@@ -133,25 +149,34 @@ extern "C" void action_load_data(lv_event_t* e) {
     last_press_time = now;
     buzzer_sound();
 
-    if (!csv_read(groups, group_count)) {
+    if (!csv_read(groups, cfg, group_count)) {
         Serial.println("Fehler beim Laden der CSV");
         create_error_data();
         return;
     }
 
+    nvs_save_config(cfg);      // Anzahlen dauerhaft speichern
+    ui_apply_config(cfg);      // Dropdowns befüllen
+
     Serial.println("CSV geladen, sende per UART...");
-    for (uint8_t i = 0; i < group_count; i++) {
+    for (uint32_t i = 0; i < group_count; i++) {
         csv_debug(groups[i]);
     }
 
-    if (!uart_send_groups(groups, group_count)) {
+    bool ok = uart_send_groups(groups, cfg, group_count);
+
+    // Speicher wieder freigeben, egal ob die Übertragung geklappt hat
+    free(groups);
+    groups = nullptr;
+    group_count = 0;
+
+    if (!ok) {
         Serial.println("UART-Übertragung fehlgeschlagen");
         create_error_uart();
         return;
     }
 
     Serial.println("Alle Gruppen erfolgreich übertragen");
-
 }
 
 /**

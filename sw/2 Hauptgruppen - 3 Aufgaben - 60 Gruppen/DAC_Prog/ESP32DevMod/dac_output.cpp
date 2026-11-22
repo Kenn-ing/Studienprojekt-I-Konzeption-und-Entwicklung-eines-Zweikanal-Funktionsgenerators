@@ -64,10 +64,10 @@ void dac_start_output(const SignalGroup* gruppen, uint8_t anzahl) {
   dac_activated();
 
   // Augabe der Information im Serial Monitor
-  Serial.printf("DAC start | G%u | CH1: %.1fmV %.1fHz %.1f° Signalform: %hhu\n | CH2: %.1fmV %.1fHz %.1f° Signalform: %hhu\n ",
-                g.group_id,
-                g.ch1.amplitude_mV, g.ch1.frequency_Hz, g.ch1.phase_deg, g.ch1.signalType,
-                g.ch2.amplitude_mV, g.ch2.frequency_Hz, g.ch2.phase_deg, g.ch2.signalType);
+  Serial.printf("DAC start | H%u A%u U%u | CH1: %.1fmV %.1fHz %.1f° | CH2: %.1fmV %.1fHz %.1f° | Signalform CH1: %hhu\n Signalform CH2: %hhu\n",
+        g.main_group, g.task, g.sub_group,
+        g.ch1.amplitude_mV, g.ch1.frequency_Hz, g.ch1.phase_deg,
+        g.ch2.amplitude_mV, g.ch2.frequency_Hz, g.ch2.phase_deg, g.ch1.signalType, g.ch2.signalType);
 }
 /**
  * Stoppt die DAC-Ausgabe.

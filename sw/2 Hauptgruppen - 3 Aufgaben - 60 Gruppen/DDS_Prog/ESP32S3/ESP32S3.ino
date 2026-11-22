@@ -14,6 +14,7 @@
 #include "csv.h"
 #include "Uart.h"
 #include <string>
+#include "ui_config.h"
 
 /**
  * Globaler Variablenbereich für die Versionnummer des Projektes. Diese Variable wird über die Funktionen get_var_version_number_text() und set_var_version_number_text() verwaltet, um den Zugriff auf die Versionnummer zu ermöglichen.
@@ -43,6 +44,7 @@ void setup() {
   Lvgl_Init();
   sd_init();
   ui_init();
+  ui_config_init_from_nvs();
   buzzer_init();
   uart_init();
 

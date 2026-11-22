@@ -17,12 +17,8 @@ static constexpr char CSV_FILENAME[] = "/Gruppen.csv";
 // Initialisiert die SD-Karte und den SPI-Bus
 bool csv_init(uint8_t cs_pin);
 
-/**
- * Liest alle Gruppen aus der CSV-Datei und speichert sie im Array.
- * Erste Zeile (Header) wird übersprungen.
- * Leere Zeilen werden ignoriert.
- */
-bool csv_read(SignalGroup groups_array[], uint8_t &group_count);
+// Liest alle Gruppen aus der CSV-Datei und speichert sie im Array.
+bool csv_read(SignalGroup *&groups, GroupConfig &cfg, uint32_t &group_count);
 
 // Gibt alle Parameter einer Gruppe auf dem Serial Monitor aus (nur Debugging)
 void csv_debug(const SignalGroup &group);

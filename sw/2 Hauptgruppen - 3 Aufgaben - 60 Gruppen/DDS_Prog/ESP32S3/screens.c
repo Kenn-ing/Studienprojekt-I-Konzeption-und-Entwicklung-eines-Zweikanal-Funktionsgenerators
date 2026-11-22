@@ -29,7 +29,7 @@ static void event_handler_cb_main_droppdown_main_group(lv_event_t *e) {
     }
 }
 
-static void event_handler_cb_main_droppdown_sub_group(lv_event_t *e) {
+static void event_handler_cb_main_droppdown_question(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     if (event == LV_EVENT_VALUE_CHANGED) {
         lv_obj_t *ta = lv_event_get_target(e);
@@ -40,7 +40,7 @@ static void event_handler_cb_main_droppdown_sub_group(lv_event_t *e) {
     }
 }
 
-static void event_handler_cb_main_droppdown_question(lv_event_t *e) {
+static void event_handler_cb_main_droppdown_sub_group(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     if (event == LV_EVENT_VALUE_CHANGED) {
         lv_obj_t *ta = lv_event_get_target(e);
@@ -358,26 +358,34 @@ void create_screen_main() {
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
-        }
-        {
-            // Droppdown_Sub_Group
-            lv_obj_t *obj = lv_dropdown_create(parent_obj);
-            objects.droppdown_sub_group = obj;
-            lv_obj_set_pos(obj, 40, 187);
-            lv_obj_set_size(obj, 160, LV_SIZE_CONTENT);
-            lv_dropdown_set_options(obj, "");
-            lv_obj_add_event_cb(obj, event_handler_cb_main_droppdown_sub_group, LV_EVENT_ALL, 0);
-            lv_obj_set_style_text_font(obj, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffd50c2f), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
-            lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Ausgeklappte Liste
+            lv_obj_t *list = lv_dropdown_get_list(obj);
+
+            // Hintergrund der Liste (gleicher Verlauf wie der Button)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xffd50c2f), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_color(list, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_opa(list, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_font(list, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Aktuell ausgewähltes Element (statt Blau)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_SELECTED | LV_STATE_CHECKED);
+
+            // Element beim Antippen
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_PRESSED);
         }
         {
             // Droppdown_Question
             lv_obj_t *obj = lv_dropdown_create(parent_obj);
             objects.droppdown_question = obj;
-            lv_obj_set_pos(obj, 40, 124);
+            lv_obj_set_pos(obj, 40, 187);
             lv_obj_set_size(obj, 160, LV_SIZE_CONTENT);
             lv_dropdown_set_options(obj, "");
             lv_obj_add_event_cb(obj, event_handler_cb_main_droppdown_question, LV_EVENT_ALL, 0);
@@ -386,6 +394,64 @@ void create_screen_main() {
             lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Ausgeklappte Liste
+            lv_obj_t *list = lv_dropdown_get_list(obj);
+
+            // Hintergrund der Liste (gleicher Verlauf wie der Button)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xffd50c2f), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_color(list, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_opa(list, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_font(list, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Aktuell ausgewähltes Element (statt Blau)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_SELECTED | LV_STATE_CHECKED);
+
+            // Element beim Antippen
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_PRESSED);
+        }
+        {
+            // Droppdown_Sub_Group
+            lv_obj_t *obj = lv_dropdown_create(parent_obj);
+            objects.droppdown_sub_group = obj;
+            lv_obj_set_pos(obj, 40, 124);
+            lv_obj_set_size(obj, 160, LV_SIZE_CONTENT);
+            lv_dropdown_set_options(obj, "");
+            lv_obj_add_event_cb(obj, event_handler_cb_main_droppdown_sub_group, LV_EVENT_ALL, 0);
+            lv_obj_set_style_text_font(obj, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_color(obj, lv_color_hex(0xffd50c2f), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_color(obj, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_dir(obj, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Ausgeklappte Liste
+            lv_obj_t *list = lv_dropdown_get_list(obj);
+
+            // Hintergrund der Liste (gleicher Verlauf wie der Button)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xffd50c2f), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_VER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_grad_color(list, lv_color_hex(0xff8c081e), LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_border_opa(list, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_font(list, &lv_font_montserrat_12, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_MAIN | LV_STATE_DEFAULT);
+
+            // Aktuell ausgewähltes Element (statt Blau)
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_CHECKED);
+            lv_obj_set_style_text_color(list, lv_color_white(), LV_PART_SELECTED | LV_STATE_CHECKED);
+
+            // Element beim Antippen
+            lv_obj_set_style_bg_color(list, lv_color_hex(0xff8c081e), LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_grad_dir(list, LV_GRAD_DIR_NONE, LV_PART_SELECTED | LV_STATE_PRESSED);
+            lv_obj_set_style_bg_opa(list, LV_OPA_COVER, LV_PART_SELECTED | LV_STATE_PRESSED);
         }
         {
             // Label_Main_Group
@@ -468,26 +534,6 @@ void tick_screen_main() {
     }
     {
         const char *new_val = get_var_question_text();
-        const char *cur_val = lv_dropdown_get_options(objects.droppdown_sub_group);
-        if (strcmp(new_val, cur_val) != 0) {
-            tick_value_change_obj = objects.droppdown_sub_group;
-            lv_dropdown_set_options(objects.droppdown_sub_group, new_val);
-            tick_value_change_obj = NULL;
-        }
-    }
-    {
-        if (!(lv_obj_get_state(objects.droppdown_sub_group) & LV_STATE_EDITED)) {
-            int32_t new_val = get_var_active_question();
-            int32_t cur_val = lv_dropdown_get_selected(objects.droppdown_sub_group);
-            if (new_val != cur_val) {
-                tick_value_change_obj = objects.droppdown_sub_group;
-                lv_dropdown_set_selected(objects.droppdown_sub_group, new_val);
-                tick_value_change_obj = NULL;
-            }
-        }
-    }
-    {
-        const char *new_val = get_var_sub_group_text();
         const char *cur_val = lv_dropdown_get_options(objects.droppdown_question);
         if (strcmp(new_val, cur_val) != 0) {
             tick_value_change_obj = objects.droppdown_question;
@@ -497,11 +543,31 @@ void tick_screen_main() {
     }
     {
         if (!(lv_obj_get_state(objects.droppdown_question) & LV_STATE_EDITED)) {
-            int32_t new_val = get_var_active_sub_group();
+            int32_t new_val = get_var_active_question();
             int32_t cur_val = lv_dropdown_get_selected(objects.droppdown_question);
             if (new_val != cur_val) {
                 tick_value_change_obj = objects.droppdown_question;
                 lv_dropdown_set_selected(objects.droppdown_question, new_val);
+                tick_value_change_obj = NULL;
+            }
+        }
+    }
+    {
+        const char *new_val = get_var_sub_group_text();
+        const char *cur_val = lv_dropdown_get_options(objects.droppdown_sub_group);
+        if (strcmp(new_val, cur_val) != 0) {
+            tick_value_change_obj = objects.droppdown_sub_group;
+            lv_dropdown_set_options(objects.droppdown_sub_group, new_val);
+            tick_value_change_obj = NULL;
+        }
+    }
+    {
+        if (!(lv_obj_get_state(objects.droppdown_sub_group) & LV_STATE_EDITED)) {
+            int32_t new_val = get_var_active_sub_group();
+            int32_t cur_val = lv_dropdown_get_selected(objects.droppdown_sub_group);
+            if (new_val != cur_val) {
+                tick_value_change_obj = objects.droppdown_sub_group;
+                lv_dropdown_set_selected(objects.droppdown_sub_group, new_val);
                 tick_value_change_obj = NULL;
             }
         }
@@ -1260,7 +1326,7 @@ void create_screen_help_infos_zur_sd_karte() {
             lv_obj_t *obj = lv_label_create(parent_obj);
             lv_obj_set_pos(obj, 9, 42);
             lv_obj_set_size(obj, 221, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "Dateiname / Speicherformat: \n\"Gruppen.csv\" / FAT32\n\nTabellenformat:\nDie Tabelle muss 9 Spalten und 30 Gruppen besitzen.\n\nAlle Parameter werden mittels eines \",\" (Kommas) getrennt.\n\nStruktur der Kopfzeile:\nGruppen_ID, Amplitude_CH1, Frequenz_CH1, Phase_CH1, Signalform_CH1, Amplitude_CH2, Frequenz_CH2, Phase_CH2, Signalform_CH2");
+            lv_label_set_text(obj, "Dateiname / Speicherformat: \n\"Gruppen.csv\" / FAT32\n\nTabellenstruktur (->=Zeile):\n-> Gesamtzahl Hauptgruppen, Gesamtzahl Aufgaben, Gesamtzahl Untergruppen\n-> [---, ---, ---]\n-> Hauptgruppe, Aufgabe, Untergruppe, Amplitude CH1, Frequenz CH1, Phase CH1, Signal CH1, Amplitude CH2, Frequenz CH2, Phase CH2, Signal CH2\n-> [---, ---, ---,  ---,  ---,  ---, ---,  ---,  ---,  ---, ---]");
         }
     }
     

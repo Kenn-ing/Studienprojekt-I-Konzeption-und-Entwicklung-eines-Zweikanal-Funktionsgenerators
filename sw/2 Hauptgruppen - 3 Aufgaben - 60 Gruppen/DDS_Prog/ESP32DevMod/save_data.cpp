@@ -11,6 +11,9 @@
 static Preferences prefs;                          // NVS Instanz
 static const char* NVS_NAMESPACE = "dac";          // Namespace im NVS
 static const char* KEY_COUNT     = "count";        // Schlüssel für die Anzahl der Gruppen
+static const char* KEY_MAIN  = "mg";               // Schlüssel für die Anzahl der Hauptgruppen
+static const char* KEY_TASKS = "t";                // Schlüssel für die Anzahl der Aufgaben
+static const char* KEY_SUB   = "sg";               // Schlüssel für die Anzahl der Untergruppen
 
 /**
  * Initialisiert den NVS Speicher
@@ -21,56 +24,69 @@ bool nvs_init() {
 }
 
 /**
- * Speichert alle Gruppen im NVS.
+ * Speichert alle Gruppen und die Anzahlen im NVS.
  * Löscht zuerst den alten Speicher und schreibt dann die neuen Gruppen.
- * Schlüssel pro Gruppe: "g01" bis "g30"
+ * Schlüssel pro Gruppe: "g0", "g1", "g2", ... (Position im Array, also group_index von Hauptgruppe/Aufgabe/Untergruppe)
+ * Die Anzahlen und der Zähler werden ganz zum Schluss geschrieben. Bricht das Speichern vorher ab,
+ * fehlt der Zähler und beim Laden gilt der Speicher als ungültig.
+ * Gibt true zurück wenn alles geschrieben werden konnte.
  */
-void nvs_save_all(const SignalGroup* groups, uint8_t amount) {
+bool nvs_save_all(const SignalGroup* groups, const GroupConfig& cfg, uint32_t amount) {
     prefs.clear();  // Alten Speicher löschen
 
-    for (uint8_t i = 0; i < amount; i++) {
-        char key[8];
-        snprintf(key, sizeof(key), "g%02u", groups[i].group_id);  // Schlüssel z.B. "g01"
-        prefs.putBytes(key, &groups[i], sizeof(SignalGroup));      // Gruppe speichern
-    }
-    prefs.putUChar(KEY_COUNT, amount);  // Anzahl der Gruppen speichern
+    for (uint32_t i = 0; i < amount; i++) {
+        char key[16];
+        snprintf(key, sizeof(key), "g%lu", (unsigned long)i);       // Schlüssel z.B. "g0"
 
-    Serial.printf("NVS: %u Gruppen gespeichert\n", amount);
-}
-
-/**
- * Lädt alle gespeicherten Gruppen aus dem NVS.
- * Gibt die Anzahl der geladenen Gruppen zurück.
- */
-uint8_t nvs_load_all(SignalGroup* groups_out) {
-    uint8_t amount = prefs.getUChar(KEY_COUNT, 0);  // Anzahl der gespeicherten Gruppen lesen
-
-    if (amount == 0) {
-        Serial.println("NVS: keine gespeicherten Gruppen");
-        return 0;
-    }
-
-    for (uint8_t i = 0; i < amount; i++) {
-        char key[8];
-        snprintf(key, sizeof(key), "g%02u", i + 1);                          // group_id startet bei 1
-
-        size_t len = prefs.getBytes(key, &groups_out[i], sizeof(SignalGroup)); // Gruppe laden
-        if (len != sizeof(SignalGroup)) {
-            Serial.printf("NVS: Fehler beim Lesen von %s\n", key);
+        // Schreiben prüfen: bei vollem NVS liefert putBytes weniger als sizeof(SignalGroup) zurück
+        if (prefs.putBytes(key, &groups[i], sizeof(SignalGroup)) != sizeof(SignalGroup)) {
+            Serial.printf("NVS: Fehler beim Schreiben von %s (Speicher voll?)\n", key);
+            prefs.clear();                                          // halbfertigen Stand nicht liegen lassen
+            return false;
         }
     }
 
-    Serial.printf("NVS: %u Gruppen geladen\n", amount);
-    return amount;
+    prefs.putUChar(KEY_MAIN,  cfg.mainGroups);   // Anzahlen speichern
+    prefs.putUChar(KEY_TASKS, cfg.tasks);
+    prefs.putUChar(KEY_SUB,   cfg.subGroups);
+    prefs.putUInt(KEY_COUNT, amount);            // Anzahl der Gruppen speichern (zuletzt!)
+
+    Serial.printf("NVS: %lu Gruppen gespeichert\n", (unsigned long)amount);
+    return true;
 }
 
 /**
- * Lädt eine einzelne Gruppe aus dem NVS anhand der Gruppen-ID.
+ * Lädt die gespeicherten Anzahlen (Hauptgruppen, Aufgaben, Untergruppen) aus dem NVS.
+ * Gibt true zurück wenn sie vorhanden sind und zur gespeicherten Gruppenanzahl passen.
+ */
+bool nvs_load_config(GroupConfig& cfg) {
+    if (!prefs.isKey(KEY_COUNT) || !prefs.isKey(KEY_MAIN) ||
+        !prefs.isKey(KEY_TASKS) || !prefs.isKey(KEY_SUB)) {
+        Serial.println("NVS: keine gespeicherten Gruppen");
+        return false;
+    }
+
+    cfg.mainGroups = prefs.getUChar(KEY_MAIN, 0);
+    cfg.tasks      = prefs.getUChar(KEY_TASKS, 0);
+    cfg.subGroups  = prefs.getUChar(KEY_SUB, 0);
+    uint32_t count = prefs.getUInt(KEY_COUNT, 0);
+
+    // M*T*S muss mit der gespeicherten Gruppenanzahl übereinstimmen
+    return config_valid(cfg) && count == group_total(cfg);
+}
+
+/**
+ * Lädt eine einzelne Gruppe aus dem NVS anhand von Hauptgruppe, Aufgabe und Untergruppe.
  * Gibt true zurück wenn die Gruppe erfolgreich geladen wurde.
  */
-bool nvs_load_group(uint8_t group_id, SignalGroup& out) {
-    char key[8];
-    snprintf(key, sizeof(key), "g%02u", group_id);                  // Schlüssel z.B. "g01"
+bool nvs_load_group(const GroupConfig& cfg, uint8_t m, uint8_t t, uint8_t s, SignalGroup& out) {
+    if (!group_in_range(cfg, m, t, s)) return false;                // Kombination gibt es gar nicht
+
+    char key[16];
+    snprintf(key, sizeof(key), "g%lu", (unsigned long)group_index(cfg, m, t, s));  // Schlüssel z.B. "g5"
     size_t len = prefs.getBytes(key, &out, sizeof(SignalGroup));    // Gruppe laden
-    return len == sizeof(SignalGroup);                               // true wenn vollständig geladen
+
+    // vollständig gelesen und die Indizes in der Gruppe passen zur Anfrage?
+    return len == sizeof(SignalGroup) &&
+           out.main_group == m && out.task == t && out.sub_group == s;
 }

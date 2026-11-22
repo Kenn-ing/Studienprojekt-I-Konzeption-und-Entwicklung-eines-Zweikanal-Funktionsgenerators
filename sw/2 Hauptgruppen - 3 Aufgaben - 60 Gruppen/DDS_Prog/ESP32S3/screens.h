@@ -51,8 +51,8 @@ typedef struct _objects_t {
     lv_obj_t *output_status;
     lv_obj_t *status_led;
     lv_obj_t *droppdown_main_group;
-    lv_obj_t *droppdown_sub_group;
     lv_obj_t *droppdown_question;
+    lv_obj_t *droppdown_sub_group;
     lv_obj_t *label_main_group;
     lv_obj_t *label_question;
     lv_obj_t *label_sub_group;

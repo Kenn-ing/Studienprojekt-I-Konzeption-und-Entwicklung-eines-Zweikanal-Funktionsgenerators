@@ -7,6 +7,13 @@
 #pragma once
 #include <Arduino.h>
 
+// Struktur zum Speichern der Gesamtzahl der Hauptgruppen, Aufgaben und Untergruppen
+struct GroupConfig{
+    uint8_t mainGroups;
+    uint8_t tasks;
+    uint8_t subGroups;
+};
+
 // Parameter eines einzelnen DAC-Signals (ein Kanal)
 struct SignalParams {
     float      amplitude_mV;  // Amplitude in mV
@@ -17,13 +24,34 @@ struct SignalParams {
 
 // Eine vollständige Gruppe mit 2 Kanälen
 struct SignalGroup {
-    uint8_t     group_id;  // Gruppennummer aus CSV  (1 - 30)
+    uint8_t main_group;  // Hauptgruppennummer aus CSV 
+    uint8_t task;        // Aufgabennummer aus CSV  
+    uint8_t sub_group;   // Untergruppennummer aus CSV 
     SignalParams ch1;      // Parameter für Kanal 1
     SignalParams ch2;      // Parameter für Kanal 2
 };
 
-// Maximale Anzahl Gruppen (CSV hat 30 Einträge)
-static constexpr uint8_t MAX_GROUPS = 30;
+// Hilfsfunktionen zur Berechnung der Gesamtzahl der Gruppen auf Basis der Konfiguration
+inline uint32_t group_total(const GroupConfig &c) {
+    return (uint32_t)c.mainGroups * c.tasks * c.subGroups;
+}
+
+// Hilfsfunktion zur Berechnung des Indexes einer Gruppe im Array auf Basis der Konfiguration und der Gruppenangaben (m,t,s)
+inline uint32_t group_index(const GroupConfig &c, uint8_t m, uint8_t t, uint8_t s) {
+    return ((uint32_t)(m - 1) * c.tasks + (t - 1)) * c.subGroups + (s - 1);
+}
+
+// Alle drei Anzahlen müssen mindestens 1 sein
+inline bool config_valid(const GroupConfig &c) {
+    return c.mainGroups > 0 && c.tasks > 0 && c.subGroups > 0;
+}
+
+// Prüft, ob (m,t,s) innerhalb der in der CSV festgelegten Anzahlen liegt
+inline bool group_in_range(const GroupConfig &c, uint8_t m, uint8_t t, uint8_t s) {
+    return m >= 1 && m <= c.mainGroups &&
+           t >= 1 && t <= c.tasks &&
+           s >= 1 && s <= c.subGroups;
+}
 
 // Interner ESP32 DAC - 8-bit Auflösung (PWM mit 0 bis 255 Stufen)
 static constexpr uint8_t  DAC_RESOLUTION      = 255;

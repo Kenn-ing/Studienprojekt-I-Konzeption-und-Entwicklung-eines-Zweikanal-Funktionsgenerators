@@ -16,6 +16,15 @@
 #define UART_ACK_TIMEOUT_MS 500   // 500ms warten auf ACK bevor Timeout
 
 bool uart_init(); // UART starten
-bool uart_send_groups(const SignalGroup* groups, uint8_t amount); // Gruppen übertragen
-bool uart_group_start(uint8_t group_id); // Gruppe X Start
-bool uart_group_stop(); // Ausgabe stoppen
+
+/**
+ * Überträgt alle Gruppen: erst CFG (Anzahlen + Gesamtzahl), dann jede Gruppe, dann DONE.
+ * groups muss total Einträge enthalten (total = group_total(cfg)).
+ */
+bool uart_send_groups(const SignalGroup* groups, const GroupConfig &cfg, uint32_t total);
+
+// Startet die Gruppe (Hauptgruppe m, Aufgabe t, Untergruppe s, jeweils 1-basiert)
+bool uart_group_start(uint8_t m, uint8_t t, uint8_t s);
+
+// Ausgabe stoppen
+bool uart_group_stop(); 
