@@ -135,7 +135,7 @@ Die CSV-Datei teilt sich in einen Konfigurations- und einen Parameterteil. Der K
 | `Gesamtzahl Aufgaben` | Legt die Gesamtzahl der Aufgaben fest | Ganzzahl | `3` |
 | `Gesamtzahl Untergruppen` | Legt die Gesamtzahl der Untergruppen fest | Ganzzahl | `4` |
 
-über den Parameterteil, welcher sich direkt unter dem Konfigurationsteil befindet, werden erneut die Parameter der einzelnen Gruppen festgelegt.
+Über den Parameterteil, welcher sich direkt unter dem Konfigurationsteil befindet, werden erneut die Parameter der einzelnen Gruppen festgelegt.
 
 | Spalte | Beschreibung | Einheit / Wertebereich | Beispiel |
 |---|---|---|---|
