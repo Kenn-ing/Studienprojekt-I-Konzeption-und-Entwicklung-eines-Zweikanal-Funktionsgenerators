@@ -31,14 +31,14 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
 │   └── libraries/
 |       └── lvgl/                                # lvgl Treiber
 |       └── Adafruit_NeoPixel/                   # NeoPixel/ws2812b Treiber
-|   └── 2 Hauptgruppen - 3 Aufgaben - 60 Gruppen # Sourcecode für einen Datensatz mit 2 Hauptgruppen, 3 Aufgaben und 60 Arbeitsgruppen
+|   └── v2.0.0                                   # Sourcecode für einen Datensatz mit Hauptgruppen, Untergruppen und Aufgaben
 │       └── DAC_Prog/                            # Implementierungsmethode A
 |           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
 │       └── DDS_Prog/                            # Implementierungsmethode B
 |           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
-|   └── 30 Gruppen                               # Sourcecode für einen Datensatz mit 30 Arbeitsgruppen
+|   └── v1.0.0                                   # Sourcecode für einen Datensatz mit 30 Arbeitsgruppen
 │       └── DAC_Prog/                            # Implementierungsmethode A
 |           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
@@ -46,9 +46,9 @@ Die Gruppenparameter für Amplitude, Frequenz, Phasenverschiebung und Signalform
 |           └── ESP32DevMod/                     # Code für die Steuerung der Komponenten und Ausgabe der Spannung
 |           └── ESP32S3/                         # Code für die Benutzeroberfläche und das Einlesen des Parameter
 ├── proj/
-|   └── 2 Hauptgruppen - 3 Aufgaben - 60 Gruppen # UI für einen Datensatz mit 2 Hauptgruppen, 3 Aufgaben und 60 Arbeitsgruppen
+|   └── v2.0.0                                   # UI für einen Datensatz mit Hauptgruppen, Untergruppen und Aufgaben
 │       └── EEZ Studio Projekt/                  # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
-|   └── 30 Gruppen                               # UI für einen Datensatz mit 30 Arbeitsgruppen
+|   └── v1.0.0                                   # UI für einen Datensatz mit 30 Arbeitsgruppen
 │       └── EEZ Studio Projekt/                  # Allgemeines EEZ Studio Projekt der Benutzeroberfläche
 ├── docs/
 │   └── SP-I_Klose_Dimitrijevic.pdf              # Schriftliche Ausarbeitung inklusive aller verwendeten Quellen
